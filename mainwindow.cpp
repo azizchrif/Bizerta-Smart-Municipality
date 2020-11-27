@@ -6,7 +6,7 @@
 #include <QSqlQueryModel>
 #include<QSqlQuery>
 #include <limits>
-
+//test
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

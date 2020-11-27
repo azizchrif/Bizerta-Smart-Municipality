@@ -15,6 +15,7 @@ Equipements::Equipements(QString Nom,int ID, int Etat)
     this->Nom=Nom;
     this->ID=ID;
     this->Etat=Etat;
+    //test
 }
 void Equipements::setNom(QString Nom){this->Nom=Nom; }
 void Equipements::setID(int ID){this->ID=ID;}
