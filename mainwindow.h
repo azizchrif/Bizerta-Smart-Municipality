@@ -2,10 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "equipements.h"
-#include <QtSql>
-#include <QWidgetAction>
-#include <QSqlDatabase>
+#include "personel.h"
+#include "poste.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -16,19 +15,31 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void initialiserperso();
+    void initialiserposte();
+
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_Ajouterclient_clicked();
 
-    void on_Tab_chambres_currentChanged(int index);
+    void on_pushButton_supprimer_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_pushButton_ajoute_rposte_clicked();
+
+    void on_pushButton_supprimer_poste_clicked();
+
+    void on_pushButton_modifier_poste_clicked();
+
+    void on_pushButton_modifier_personel_clicked();
+
+    void on_pushButton_imprimer_poste_clicked();
+
+    void on_pushButton_imprimer_personels_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Equipements e;
-     int rowSelected;
-     QSqlDatabase db;
+    Personel pp;
+    Poste po;
 };
 #endif // MAINWINDOW_H
