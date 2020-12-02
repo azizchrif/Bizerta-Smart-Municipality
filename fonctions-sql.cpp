@@ -9,6 +9,7 @@ gestions::gestions(){
 int gestions::nbticket(){
     QSqlQuery query;
     int nb;
+//test
     query.exec("SELECT COUNT(NUMT) FROM T_TICKET");
      while(query.next()){
     nb = query.value(0).toInt();
