@@ -1,12 +1,16 @@
 #ifndef CONNEXION_H
 #define CONNEXION_H
-
-
-class connexion
+#include <QSqlDatabase>
+//connect
+class Connexion
 {
+private:
+    QSqlDatabase db;
 public:
-    connexion();
-    bool createConnexion();
+    Connexion();
+    bool ouvrirConnexion();
+    void fermerConnexion();
+
 };
 
 #endif // CONNEXION_H

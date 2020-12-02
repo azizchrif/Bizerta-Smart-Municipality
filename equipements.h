@@ -9,24 +9,33 @@ class Equipements
     QString Nom;
     int ID;
     int Etat;
+    int Prix;
 
 public:
    Equipements();
-    Equipements(QString,int,int);
+    Equipements(QString,int,int,int);
     bool AjouterEquipements();
-    bool ModifierEquipements();
+    bool ModifierEquipements(int);
    QSqlQueryModel* AfficherEquipements();
+   QSqlQueryModel* Afficher_ascnom();//tri asc
+   QSqlQueryModel* Afficher_descnom();//tri desc
+   QSqlQueryModel* Afficher_ascprix();//tri asc
+   QSqlQueryModel* Afficher_descprix();//tri desc
+   QSqlQueryModel* Afficher_ascetat();//tri asc
+   QSqlQueryModel* Afficher_descetat();//tri desc
+   QSqlQueryModel* Rechercher_ID(int id);
+   QSqlQueryModel* Rechercher_Etat(int Etat);
+   QSqlQueryModel* Rechercher_Nom(QString Nom);
     bool SupprimerEquipements(int);
-    bool RechercherEquipements();
-    bool TrierEquipements();
     bool Envoyermail();
     void setNom(QString);
     void setID(int);
     void setEtat(int);
+    void setPrix(int);
     QString getNom();
     int getID();
     int getEtat();
-   // bool QAbstractItemModel::removeRow(int row, Equipements());
+    int getPrix();
 
 
 };
