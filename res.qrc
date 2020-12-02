@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>city22.jpg</file>
+        <file>bg.jpg</file>
+        <file>city21.jpg</file>
+        <file>Capture.PNG</file>
+        <file>smart-city.jpg</file>
+    </qresource>
+</RCC>
