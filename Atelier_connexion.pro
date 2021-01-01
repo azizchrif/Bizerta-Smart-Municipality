@@ -21,17 +21,22 @@ SOURCES += \
     connexion.cpp \
     equipements.cpp \
     fournisseurs.cpp \
+    historique.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    statistiques.cpp
 
 HEADERS += \
     connexion.h \
     equipements.h \
     fournisseurs.h \
-    mainwindow.h
+    historique.h \
+    mainwindow.h \
+    statistiques.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    statistiques.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

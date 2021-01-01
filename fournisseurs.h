@@ -16,7 +16,7 @@ public:
    Fournisseurs();
    Fournisseurs(QString,QString,QString,int,int);
     bool AjouterFournisseurs();
-    bool ModifierFournisseurs(int);
+    bool ModifierFournisseurs();
    QSqlQueryModel* AfficherFournisseurs();
    QSqlQueryModel* Afficher_desscNom();
    QSqlQueryModel* Afficher_asscNom();

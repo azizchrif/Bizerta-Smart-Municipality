@@ -54,8 +54,9 @@ QSqlQueryModel* Fournisseurs::AfficherFournisseurs()
    model->setQuery("SELECT* FROM FOURNISSEUR");
    model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
-   model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+
    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
   return  model;
 }
@@ -65,8 +66,9 @@ QSqlQueryModel* Fournisseurs::Afficher_desscNom()//tri desc
     model->setQuery("select * from FOURNISSEUR ORDER BY NOMF DESC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -77,8 +79,9 @@ QSqlQueryModel* Fournisseurs::Afficher_asscNom()//tri asc
     model->setQuery("select * from FOURNISSEUR ORDER BY NOMF ASC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -89,8 +92,9 @@ QSqlQueryModel* Fournisseurs::Afficher_descID()//tri desc
     model->setQuery("select * from FOURNISSEUR ORDER BY IDF DESC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -101,8 +105,9 @@ QSqlQueryModel* Fournisseurs::Afficher_ascID()//tri asc
     model->setQuery("select * from FOURNISSEUR ORDER BY IDF ASC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
-    model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -113,8 +118,9 @@ QSqlQueryModel* Fournisseurs::Afficher_descAdresse()//tri desc
     model->setQuery("select * from FOURNISSEUR ORDER BY ADRESSEF DESC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -125,8 +131,9 @@ QSqlQueryModel* Fournisseurs::Afficher_ascAdresse()//tri asc
     model->setQuery("select * from FOURNISSEUR ORDER BY ADRESSEF ASC ");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
 
         return model;
@@ -141,8 +148,9 @@ QSqlQueryModel* Fournisseurs::Rechercher_ID(int id)
     model->setQuery(query);
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("NumTel"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("AdresseEmail"));
+
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Adresse"));
         return model;
     }
@@ -184,21 +192,18 @@ query.prepare("DELETE FROM FOURNISSEUR WHERE IDF =:id");
 query.bindValue(":id",id);
 return query.exec();
 }
-bool Fournisseurs::ModifierFournisseurs(int id)
-{QSqlQuery query;
-    QString id_string= QString::number(id);
-    query.prepare("DELETE FROM FOURNISSEUR WHERE IDF =:id");
-    query.bindValue(":id",id);
-    query.exec();
-    QString NumTel_string=QString::number(NumTel);
-          query.prepare("INSERT INTO FOURNISSEUR (NOMF,IDF,NUMTELF,ADRESSEF,ADRESSEEMAILF)"
-                        "VALUES (:Nom, :ID, :NumTel,:Adresse,:AdresseEmail)");
-          query.bindValue(":Nom", Nom);
-          query.bindValue(":ID", id);
+bool Fournisseurs::ModifierFournisseurs()
+{
+    QSqlQuery query;
+QString ID_string= QString::number(ID);
+QString NumTel_string=QString::number(NumTel);
+   query.prepare("UPDATE FOURNISSEUR set IDF=:ID, NOMF=:Nom, NUMTELF=:NumTel,  ADRESSEF=:Adresse, ADRESSEEMAILF=:AdresseEmail where IDF=:ID");
+  //UPDATE EQUIPEMENT set ID=:ID, NOM=:Nom, PRIX=:Prix,  ETAT=:Etat where ID=:ID
+   query.bindValue(":Nom", Nom);
+          query.bindValue(":ID", ID_string);
           query.bindValue(":NumTel", NumTel_string);
           query.bindValue(":Adresse", Adresse);
           query.bindValue(":AdresseEmail", AdresseEmail);
 
-         return query.exec();
-
+   return query.exec();
 }

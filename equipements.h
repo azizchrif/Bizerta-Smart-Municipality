@@ -15,7 +15,7 @@ public:
    Equipements();
     Equipements(QString,int,int,int);
     bool AjouterEquipements();
-    bool ModifierEquipements(int);
+    bool ModifierEquipements();
    QSqlQueryModel* AfficherEquipements();
    QSqlQueryModel* Afficher_ascnom();//tri asc
    QSqlQueryModel* Afficher_descnom();//tri desc
@@ -26,6 +26,7 @@ public:
    QSqlQueryModel* Rechercher_ID(int id);
    QSqlQueryModel* Rechercher_Etat(int Etat);
    QSqlQueryModel* Rechercher_Nom(QString Nom);
+   int verifEtat(int Etat) ;
     bool SupprimerEquipements(int);
     bool Envoyermail();
     void setNom(QString);

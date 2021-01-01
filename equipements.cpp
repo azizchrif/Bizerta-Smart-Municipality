@@ -171,23 +171,19 @@ query.prepare("DELETE FROM EQUIPEMENT WHERE ID =:id");
 query.bindValue(":id",id);
 return query.exec();
 }
-bool Equipements::ModifierEquipements(int id)
+bool Equipements::ModifierEquipements()
 {
-    Equipements e;
-    QSqlQuery query;
-    QString id_string= QString::number(id);
-    QString Etat_string=QString::number(Etat);
-    QString Prix_string=QString::number(Prix);
-    query.prepare("DELETE FROM EQUIPEMENT WHERE ID =:id");
-    query.bindValue(":id",id);
-    query.exec();
-    e.AfficherEquipements();
-    query.prepare("INSERT INTO EQUIPEMENT (ID,NOM,PRIX,ETAT)"
-                  "VALUES (:ID, :Nom, :Prix,:Etat)");
-    query.bindValue(":ID", id_string);
-    query.bindValue(":Nom", Nom);
-    query.bindValue(":Prix", Prix_string);
-    query.bindValue(":Etat", Etat_string);
+
+QSqlQuery query;
+QString id_string= QString::number(ID);
+QString Etat_string=QString::number(Etat);
+QString Prix_string=QString::number(Prix);
+   query.prepare("UPDATE EQUIPEMENT set ID=:ID, NOM=:Nom, PRIX=:Prix,  ETAT=:Etat where ID=:ID");
+
+   query.bindValue(":ID", id_string);
+   query.bindValue(":Nom", Nom);
+   query.bindValue(":Prix", Prix_string);
+   query.bindValue(":Etat", Etat_string);
 
    return query.exec();
 }
