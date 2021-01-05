@@ -1,0 +1,8 @@
+lun. d?c. 28 10:22:30 2020 L'ajout d'un Ticket a la base de donnees de reference = 0 a ete effectue avec succees
+lun. d?c. 28 10:22:57 2020 La modification d'un Ticket a la base de donnees de reference = 3453 a ete effectuee avec succees
+lun. d?c. 28 10:23:21 2020 La modification d'un Ticket a la base de donnees de reference = 3453 a ete effectuee avec succees
+lun. d?c. 28 10:23:57 2020 La suppression d'un Ticket a la base de donnees de reference = 3453 a ete effectuee avec succees
+lun. d?c. 28 10:29:06 2020 L'ajout d'un Ticket a la base de donnees de reference = 3456 a ete effectue avec succees
+lun. d?c. 28 10:29:30 2020 La modification d'un Ticket a la base de donnees de reference = 3456 a ete effectuee avec succees
+lun. d?c. 28 11:39:13 2020 La modification d'un Ticket a la base de donnees de reference = 3456 a ete effectuee avec succees
+lun. déc. 28 11:47:17 2020 La modification d'un Ticket a la base de donnees de reference = 12334 a ete effectuee avec succees

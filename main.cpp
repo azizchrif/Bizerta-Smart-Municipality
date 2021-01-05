@@ -1,26 +1,29 @@
 #include "mainwindow.h"
-#include "sqlc.h"
+#include "connexion.h"
+#include"login.h"
+
 #include <QApplication>
 #include <QMessageBox>
 
-#include <QApplication>
-
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    Connection c;
-    QString dbtest;
+   QApplication a(argc, argv);
 
+   connexion c;
+   bool test=c.createconnect();
+   MainWindow w;
 
-    bool test=c.createconnect();
-    if(test)
-    {
-    w.show();
-    }
-    else
-    {
-        QMessageBox::critical(nullptr, QObject::tr("database is closed"),QObject::tr("connection failed.\n" "click to exit"),QMessageBox::Cancel);
-    }
-    return a.exec();
+   if(test)
+   {
+        w.show();
+        QMessageBox::information(nullptr,QObject::tr("Data Base is open"),QObject::tr("Connection successful. \n"
+                                                                                       "Click Cancel to exit"),QMessageBox::Cancel);
+   }else
+   {
+       QMessageBox::critical(nullptr,QObject::tr("Data Base is not open"),QObject::tr("Connection failed. \n "
+                                                                                     "Click Cancel to exit"),QMessageBox::Cancel);
+
+   }
+
+   return a.exec();
 }

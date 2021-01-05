@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/prefix1">
+        <file>Ressources/actualiser.png</file>
+        <file>Ressources/ajout.png</file>
+        <file>Ressources/BG.jpg</file>
+        <file>Ressources/imprim.png</file>
+        <file>Ressources/Modifier.png</file>
+        <file>Ressources/pdf.png</file>
+        <file>Ressources/rechercher.png</file>
+        <file>Ressources/Supp.png</file>
+        <file>Ressources/White.png</file>
+        <file>Ressources/login.png</file>
+        <file>Ressources/municipality.png</file>
+        <file>Ressources/imprimer.png</file>
+        <file>Ressources/logout.png</file>
+    </qresource>
+</RCC>
